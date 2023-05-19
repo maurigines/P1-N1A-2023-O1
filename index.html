@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tus Reclamos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <ul>
+          <li><h1> Aca va el Logo</h1></li>
+          <li><a href="#principal">Principal</a></li>
+          <li><a href="#reclamos">Ver Reclamos</a></li>
+          <li><a href="#estadisticas">Estadisticas</a></li>
+          <li><a href="#empresas">Agregas Empresa</a></li>
+          <li><form>
+            <input type="text" name="query" placeholder="">
+            <button type="submit">Colocar img </button>
+          </form></li>
+        </ul>
+      </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Sitio para la gestion de Reclamos</h2>
+      <h3>Este sitio permite ingresar reclamos o quejas y realizar diversas consultas.</h3>
+      <p>Sitio desarrollado en el curso de Programacion I - 1er Semestre 2023 - Universidad ORT Uruguay por:</p>
+      <div class="container">
+        <img src="img/mauri.jpeg" alt="Imagen">  <p>Mauricio Martinez 255043.</p>
+      </div>
+      <div class="container">
+        <img src="img/alfo.jpeg" alt="Imagen">  <p>Alfonso Carvallo NUM</p>
+      </div>
+      
+
+      <button type="button">Agrega tu reclamo aquí</button>
+    </section>
+    <section>
+        <h2 id="reclamos">Agregar Reclamo</h2>
+        <div>
+        <label for="myTextField">Nombre:</label>
+        <input type="text" id="txtNombre" placeholder="Tu Nombre...">
+        </div>
+        <div>
+        <label for="myComboBox">Empresa:</label>
+        <select id="cmbEmpresa">
+            <option value="opcion1">Todo Viajes S.A</option>
+            <option value="opcion2">Alfa</option>
+        </select>
+        </div>
+        <div>
+        <label for="myTextField">Reclamo:</label>
+        <input type="text" id="txtReclamo" placeholder="El titulo es...">
+        </div>
+        <div>
+            <textarea id="txtAreaReclamo" placeholder="Y tu reclamo es..."></textarea>
+        </div>
+        <div>
+            <button type="button">Agregar</button>
+          </div>
+    </section>
+  </main>
+
+  
+</body>
+</html>
