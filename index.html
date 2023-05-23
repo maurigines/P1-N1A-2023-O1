@@ -69,8 +69,85 @@
         <p>Anonimo: Perdi la valija!</p>
         <p>Empresa: TodoViajes S.A</p>
         <p>Viaje por su empresa y la valija no llego.</p>
-        <button>A mi tambien me paso!</button><p>COntador:3</p>
+        <button>A mi tambien me paso!</button>
+        <span>Contador:3</span>
       </div>
+      <div>
+        <h3>Reclamo No.1</h3>
+        <p>Luis Perez: Pasaje muy caro</p>
+        <p>Empresa: TodoViajes S.A</p>
+        <p>El pasaje a BsAs esta muy caro, compare con otras companias y el precio de ustedes es mas del doble. Ademas las otras empresas ofrecen mejor catering</p>
+        <button>A mi tambien me paso!</button>
+        <span>Contador:1</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Estadisticas</h2>
+      <h3>Empresas Seleccionadas</h3>
+      <div>
+      <span>
+        <button>A</button>
+        <button>T</button>
+        <button>*</button>
+      </span>
+      </div>
+      <div style="margin: 20px;">
+      <input type="radio" id="ordenCreciente" name="selectorOrdenNombre">
+      <label for="ordenCreciente">Orden nombre creciente</label>
+      
+      <input type="radio" id="opcionDecreciente" name="selectorOrdenNombre">
+      <label for="opcionDecreciente">Orden nombre decreciente</label>
+    </div>
+    <div>
+      <table>
+        <caption>Empresas que empiezan con T</caption>
+         <tr>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Rubro</th>
+          <th>Cantidad</th>
+        </tr>
+        <tr>
+          <td>TodoViajes S.A</td>
+          <td>Av Italia 51515</td>
+          <td>Viajes</td>
+          <td>4</td>
+        </tr>
+     </table>
+     </div>
+     <div>
+      <h3>Informacion General</h3>
+      <p>El promedio de las cantidades considerando todos los reclamos de todas las empresas es:4</p>
+      <p>Total de empresas registradas:2</p>
+      <h3> Empresas sin Reclamos</h3>
+      <ul>• Alfa(18 de Julio 12345)Rubro: Muebles</ul>
+      <h3>Rubros con Maxima cantidad de reclamos</h3>
+      <ul>• Viajes: cantidad 4</ul>
+     </div>
+     
+    </section>
+    <section>
+      <h2>Agregar Empresa</h2>
+      <h3>Datos:</h3>
+        <div>
+        <label for="myTextField">Nombre:</label>
+        <input type="text" id="txtDatosNombre" placeholder="">
+        </div>
+        <div>
+          <label for="myTextField">Direccion:</label>
+          <input type="text" id="txtDatosDireccion" placeholder="">
+          </div>
+        <div>
+        <label for="myComboBox">Rubro:</label>
+        <select id="cmbRubro">
+            <option value="opcion1">SinDatos</option>
+        </select>
+        </div>
+        <div>
+          <button>Agregar</button>
+        </div>
+        
     </section>
   </main>
 
