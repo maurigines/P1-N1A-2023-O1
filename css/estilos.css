@@ -1,27 +1,112 @@
-body {
-  background-color: greenyellow;
+body, main, section, header, footer, h1, h2, h3, h4, p, ul, li {
+  margin: 0px;
+  padding: 0px;
 }
+
+h1, h2, h3, h4 {
+  margin-bottom:20px;
+}
+
+section {
+  padding:20px;
+}
+
+body {
+  background-color: #b5d782;
+}
+
+header {
+  padding: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+main img {
+  width: 50px;
+  height: auto;
+}
+
+#logo {
+  background-image: url('../img/logo.png');
+  display: block;
+  width: 230px;
+  height: 40px;
+  background-size: cover;
+}
+
 *{
     font-family: Arial;
 
 }
 
 #principal{
-  background-color: coral;
+  background-color: #FF6F61;
 }
 
 #verReclamos{
-  background-color: rgb(185, 57, 18);
+  background-color: #955251;
 }
 
 #estadisticas{
-  background-color: goldenrod ;
+  background-color: #EFC050 ;
 }
 
 #agregarReclamo{
-  background-color: goldenrod;
+  background-color: #EFC050;
 }
 
 #agregarEmpresa{
-  background-color: limegreen;
+  background-color: #88B04B;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+  padding: 5px;
+}
+
+nav ul li a {
+  color: green;
+}
+
+.searchForm {
+  margin-left: auto;
+}
+
+.searchForm input {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.searchForm .search {
+  background-image: url('../img/lupa.png');
+  display: block;
+  width: 57px;
+  height: 15px;
+  background-size: 22px;
+  padding-right: 30px;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 8px;
+  text-align: left;
+}
+
+.estudiante {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom:10px;
+}
+
+.estudiante span {
+  margin-left: 10px;
 }
