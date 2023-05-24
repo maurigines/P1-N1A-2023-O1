@@ -15,5 +15,13 @@ body {
 }
 
 #estadisticas{
-  background-color: ;
+  background-color: goldenrod ;
+}
+
+#agregarReclamo{
+  background-color: goldenrod;
+}
+
+#agregarEmpresa{
+  background-color: limegreen;
 }
