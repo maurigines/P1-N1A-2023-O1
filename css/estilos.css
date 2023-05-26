@@ -12,7 +12,7 @@ section {
 }
 
 body {
-  background-color: #b5d782;
+  background-color: #B0C858;
 }
 
 header {
@@ -42,23 +42,23 @@ main img {
 }
 
 #principal{
-  background-color: #FF6F61;
+  background-color: #FF9F79;
 }
 
 #verReclamos{
-  background-color: #955251;
+  background-color: #C07651;
 }
 
 #estadisticas{
   background-color: #EFC050 ;
 }
 
-#agregarReclamo{
-  background-color: #EFC050;
+#agregarReclamo{  
+  background-color: #C39C51 ;
 }
 
 #agregarEmpresa{
-  background-color: #88B04B;
+  background-color: #99F997;
 }
 
 nav ul {
