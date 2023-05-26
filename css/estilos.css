@@ -17,7 +17,26 @@ body {
 }
 
 header {
-  padding: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  background: #B0C858;
+  width: 100%;
+  top:0px;
+  z-index: 99999;
+}
+
+header nav {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* CSS Hack to make the fixed header float and negative margin */
+:target:before {
+  content: "";
+  display: block;
+  height: 87px;
+  margin: -87px 0 0;
 }
 
 p {
@@ -44,6 +63,7 @@ main img {
 
 #principal{
   background-color: #FF9F79;
+  padding-top:87px;
 }
 
 #verReclamos{
