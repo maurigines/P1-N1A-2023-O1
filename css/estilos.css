@@ -124,13 +124,13 @@ nav ul li a {
 }
 
 .botonDegrade {
-  padding: 10px 20px;
-  border: none;
-  color: #ffffff;
-  font-size: 16px;
+  padding: 12px 20px;
+  border-color: #000000;
+  color: #000000;
+  font-size: 22px;
   cursor: pointer;
-  border-radius: 20px;
-  background-image: linear-gradient(to right, #ff7f00, #ff4c00);
+  border-radius: 17px;
+  background-image: linear-gradient( #B1C255, #BF7F4F);
   display: block;
   margin-left: auto;
   margin-right: auto;
