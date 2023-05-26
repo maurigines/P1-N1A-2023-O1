@@ -68,13 +68,13 @@ main img {
 
 #verReclamos{
   background-color: #C07651;
-  margin: 10px;
-}
+  margin: 15px 15px 5px 5px;}
+
 
 #estadisticas{
   background-color: #C39C51 ;
-  margin: 10px;
-}
+  margin: 15px 15px 5px 5px;}
+  
 
 #agregarReclamo{  
   background-color: #C39C51 ;
@@ -82,8 +82,7 @@ main img {
 
 #agregarEmpresa{
   background-color: #99F997;
-  margin: 10px;
-}
+  margin: 15px 15px 5px 5px;}
 
 nav ul {
   margin: 0px;
