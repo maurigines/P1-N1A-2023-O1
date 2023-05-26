@@ -111,3 +111,16 @@ nav ul li a {
 .estudiante span {
   margin-left: 10px;
 }
+
+.botonDegrade {
+  padding: 10px 20px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #ff7f00, #ff4c00);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
