@@ -65,13 +65,13 @@ nav ul {
   margin: 0px;
   padding: 0px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
 }
 
 nav ul li {
   list-style: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 nav ul li a {
@@ -91,12 +91,13 @@ nav ul li a {
   background-image: url('../img/lupa.png');
   display: block;
   width: 57px;
+  align-content: center;
   height: 15px;
   background-size: 22px;
   padding-right: 30px;
   background-repeat: no-repeat;
-  background-position: right;
-  padding: 8px;
+  background-position: center;
+  padding: 5px;
   text-align: left;
 }
 
