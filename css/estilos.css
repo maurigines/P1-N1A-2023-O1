@@ -109,7 +109,7 @@ nav ul li a {
 }
 
 .searchForm input {
-  padding: 7px;
+  padding: 2px;
   border: 1px solid #ccc;
 }
 
@@ -121,9 +121,9 @@ nav ul li a {
   background-image: url('../img/lupa.png');
   background-color: transparent;
   display: block;
-  width: 57px;
+  width: 14px;
   align-content: center;
-  height: 15px;
+  height: 12px;
   background-size: 22px;
   padding-right: 30px;
   background-repeat: no-repeat;
@@ -144,13 +144,13 @@ nav ul li a {
 }
 
 .botonDegrade {
-  padding: 10px 20px;
-  border: none;
-  color: #ffffff;
-  font-size: 16px;
+  padding: 12px 20px;
+  border-color: #000000;
+  color: #000000;
+  font-size: 22px;
   cursor: pointer;
-  border-radius: 20px;
-  background-image: linear-gradient(to right, #ff7f00, #ff4c00);
+  border-radius: 17px;
+  background-image: linear-gradient( #B1C255, #BF7F4F);
   display: block;
   margin-left: auto;
   margin-right: auto;
