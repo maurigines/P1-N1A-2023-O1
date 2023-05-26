@@ -11,7 +11,6 @@ section {
   padding:20px;
 }
 
-
 body {
   background-color: #B0C858;
 }
@@ -35,8 +34,8 @@ header nav {
 :target:before {
   content: "";
   display: block;
-  height: 87px;
-  margin: -87px 0 0;
+  height: 106px;
+  margin: -106px 0 0;
 }
 
 p {
@@ -63,7 +62,7 @@ main img {
 
 #principal{
   background-color: #FF9F79;
-  padding-top:87px;
+  padding-top:106px;
 }
 
 #verReclamos{
