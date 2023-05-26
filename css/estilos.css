@@ -89,7 +89,7 @@ nav ul li a {
 }
 
 .searchForm input {
-  padding: 7px;
+  padding: 2px;
   border: 1px solid #ccc;
 }
 
@@ -101,9 +101,9 @@ nav ul li a {
   background-image: url('../img/lupa.png');
   background-color: transparent;
   display: block;
-  width: 57px;
+  width: 14px;
   align-content: center;
-  height: 15px;
+  height: 12px;
   background-size: 22px;
   padding-right: 30px;
   background-repeat: no-repeat;
