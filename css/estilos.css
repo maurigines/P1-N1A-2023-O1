@@ -82,13 +82,24 @@ nav ul li a {
   margin-left: auto;
 }
 
+.searchForm form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .searchForm input {
-  padding: 10px;
+  padding: 7px;
   border: 1px solid #ccc;
+}
+
+.searchForm button {
+  margin-left:5px;
 }
 
 .searchForm .search {
   background-image: url('../img/lupa.png');
+  background-color: transparent;
   display: block;
   width: 57px;
   align-content: center;
