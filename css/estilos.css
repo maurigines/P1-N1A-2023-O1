@@ -11,6 +11,7 @@ section {
   padding:20px;
 }
 
+
 body {
   background-color: #B0C858;
 }
@@ -47,10 +48,12 @@ main img {
 
 #verReclamos{
   background-color: #C07651;
+  margin: 10px;
 }
 
 #estadisticas{
-  background-color: #EFC050 ;
+  background-color: #C39C51 ;
+  margin: 10px;
 }
 
 #agregarReclamo{  
@@ -59,6 +62,7 @@ main img {
 
 #agregarEmpresa{
   background-color: #99F997;
+  margin: 10px;
 }
 
 nav ul {
@@ -71,7 +75,7 @@ nav ul {
 
 nav ul li {
   list-style: none;
-  padding: 10px;
+  padding: 20px;
 }
 
 nav ul li a {
