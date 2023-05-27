@@ -8,7 +8,7 @@ body, main, section, header, footer, h1, h2, h3, h4, p, ul, li {
 }
 
 html {
-  scroll-padding-top: 92px;
+  scroll-padding-top: 60px;
 }
 
 h1, h2, h3, h4 {
@@ -24,13 +24,15 @@ body {
 }
 
 header {
-  padding-top: 8px;
-  padding-bottom: 8px;
   position: fixed;
   background: #B0C858;
   width: 100%;
   top:0px;
   z-index: 99999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
 }
 
 header nav {
@@ -55,11 +57,9 @@ main img {
   background-size: cover;
 }
 
-
-
 #principal{
   background-color: #FF9F79;
-  margin-top: 90px;
+  margin-top: 60px;
 }
 
 #verReclamos{
@@ -284,4 +284,114 @@ nav ul li a {
 button.selected {
   background-color: limegreen;
   color: white;
+}
+
+#mobile-toggle {
+  display: none;
+}
+
+#mobile-toggle:checked + .mobile-button-container .mobile-button,
+#mobile-toggle:checked + .mobile-button-container .mobile-button::before,
+#mobile-toggle:checked + .mobile-button-container .mobile-button::after {
+  background-color:black;
+}
+
+.mobile-button,
+.mobile-button::before,
+.mobile-button::after {
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.mobile-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.mobile-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+.mobile-button-container {
+  right: 50px;
+  position: absolute;
+}
+
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom:10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  .mobile-button, .mobile-button::after, .mobile-button::before {
+    display: block;
+  }
+
+  .mobile-button-container {
+    flex-direction: column;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+  }
+
+  #mobile-toggle:checked ~ nav {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .main-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul li a {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    display: block;
+    text-align: center;
+    color:#fff;
+  }
+
+  nav ul {
+    margin-top: 10px;
+    width: 100%;
+    border-top: 1px solid #000
+  }
+
+  nav ul li {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-color: #5d6c24;
+  }
+  
+  .searchForm {
+    background-color:#B0C858
+  }
+
+  #principal {
+    margin-top: 50px;
+  }
+
+  .searchForm {
+    padding-top: 10px;
+  }
 }
