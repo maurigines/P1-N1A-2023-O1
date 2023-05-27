@@ -3,6 +3,14 @@ body, main, section, header, footer, h1, h2, h3, h4, p, ul, li {
   padding: 0px;
 }
 
+* {
+  font-family: Arial;
+}
+
+html {
+  scroll-padding-top: 92px;
+}
+
 h1, h2, h3, h4 {
   margin-bottom:20px;
 }
@@ -30,14 +38,6 @@ header nav {
   margin-right: 10px;
 }
 
-/* CSS Hack to make the fixed header float and negative margin */
-:target:before {
-  content: "";
-  display: block;
-  height: 106px;
-  margin: -106px 0 0;
-}
-
 p {
   margin-bottom: 20px;
 }
@@ -55,28 +55,95 @@ main img {
   background-size: cover;
 }
 
-*{
-    font-family: Arial;
 
-}
 
 #principal{
   background-color: #FF9F79;
-  padding-top:106px;
+  margin-top: 90px;
 }
 
 #verReclamos{
   background-color: #C07651;
-  margin: 15px 15px 5px 5px;}
-
+  margin: 15px 15px 5px 5px;
+}
 
 #estadisticas{
   background-color: #C39C51 ;
-  margin: 15px 15px 5px 5px;}
+  margin: 15px 15px 5px 5px;
+}
   
-
 #agregarReclamo{  
   background-color: #C39C51 ;
+}
+
+#agregarReclamo form, #agregarEmpresa form {  
+  width: 500px;
+}
+
+#agregarReclamo form label, #agregarEmpresa form label {
+  min-width: 130px;
+}
+
+#agregarReclamo form input, #agregarEmpresa form input {
+  width: 200px;
+}
+
+#agregarReclamo form select, #agregarEmpresa form select {
+  width: 208px;
+}
+
+#agregarReclamo form div, #agregarEmpresa form div {
+  display: flex;
+  justify-content: start;
+  margin-bottom:2px;
+}
+
+#agregarReclamo form div.flexColumn, #agregarEmpresa form div.flexColumn {
+  flex-direction: column;
+}
+
+#agregarReclamo form textarea, #agregarEmpresa form textarea {
+  width: 400px;
+}
+
+#agregarReclamo button, #agregarEmpresa button {
+  width: 100px;
+  margin-top: 10px;
+}
+
+.reclamoItem {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+}
+
+.reclamoItem button {
+  width: 200px;
+}
+
+.reclamoItem .empresa {
+  background-color: lightgreen;
+}
+
+.reclamoItem .asunto {
+  background-color: lightcoral;
+}
+
+.reclamoItem .actions {
+  display:flex;
+  flex-direction: row;
+}
+
+.reclamoItem .actions span {
+  margin-left:10px;
 }
 
 #agregarEmpresa{
@@ -145,7 +212,7 @@ nav ul li a {
   margin-left: 10px;
 }
 
-.botonDegrade {
+.btnDegrade {
   padding: 12px 20px;
   border-color: #000000;
   color: #000000;
@@ -156,4 +223,65 @@ nav ul li a {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #000;
+  font-weight: 500;
+}
+
+.btnDegrade:hover {
+  cursor: pointer;
+}
+
+#estadisticas table {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#estadisticas table td, #estadisticas table th {
+  border:1px solid #000;
+  background: #fff;
+  margin: 0px;
+  padding:0px;
+}
+
+.sort-options {
+  margin: 0 auto;
+}
+
+.sort-options .radios {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.letter-selectors {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter-selectors button {
+  margin-left:5px; margin-right:5px;
+}
+
+#estadisticas ul {
+  margin-bottom:20px;
+}
+
+#estadisticas ul li {
+  margin-left:40px;
+}
+
+button.selected {
+  background-color: limegreen;
+  color: white;
 }

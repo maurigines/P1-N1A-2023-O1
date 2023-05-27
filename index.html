@@ -11,7 +11,7 @@
         <ul>
           <li><div id="logo"></div></li>
           <li><a href="#principal">Principal</a></li>
-          <li><a href="#reclamos">Ver Reclamos</a></li>
+          <li><a href="#verReclamos">Ver Reclamos</a></li>
           <li><a href="#estadisticas">Estadisticas</a></li>
           <li><a href="#agregarEmpresa">Agregas Empresa</a></li>
           <li class="searchForm">
@@ -34,75 +34,78 @@
         <span>Mauricio Martinez 255043.</span>
       </div>
       <div class="estudiante">
-        <a href="img/alfonso.png" target="_blank"><img src="img/alfonso.png" alt="Imagen"></a> 
+        <a href="img/alfo.jpg" target="_blank"><img src="img/alfo.jpg" alt="Imagen"></a> 
         <span>Alfonso Carvallo 250427</span>
       </div>
       
-
-      <button class="botonDegrade">Agrega tu reclamo aquí</button>
+      <a href="#agregarReclamo" class="btnDegrade">Agrega tu reclamo aquí</a>
     </section>
     <section id="agregarReclamo">
-        <h2 id="reclamos">Agregar Reclamo</h2>
+      <form action="index.html" target="_self" method="get">
+        <h2>Agregar Reclamo</h2>
         <div>
-        <label for="myTextField">Nombre:</label>
-        <input type="text" id="txtNombre" placeholder="Tu Nombre...">
+          <label for="myTextField">Nombre:</label>
+          <input name="nombre" type="text" id="txtNombre" placeholder="Tu Nombre...">
         </div>
         <div>
-        <label for="myComboBox">Empresa:</label>
-        <select id="cmbEmpresa">
-            <option value="opcion1">Todo Viajes S.A</option>
-            <option value="opcion2">Alfa</option>
-        </select>
+          <label for="myComboBox">Empresa:</label>
+          <select name="empresa" id="cmbEmpresa">
+              <option value="opcion1">Todo Viajes S.A</option>
+              <option value="opcion2">Alfa</option>
+          </select>
         </div>
         <div>
-        <label for="myTextField">Reclamo:</label>
-        <input type="text" id="txtReclamo" placeholder="El titulo es...">
-        </div>
-        <div>
-            <textarea id="txtAreaReclamo" placeholder="Y tu reclamo es..."></textarea>
-        </div>
-        <div>
-            <button type="button">Agregar</button>
+          <label for="myTextField">Reclamo:</label>
+          <div class="flexColumn">
+            <input name="reclamo" type="text" id="txtReclamo" placeholder="El titulo es...">
+            <textarea name="reclamoBody" id="txtAreaReclamo" placeholder="Y tu reclamo es..."></textarea>
+            <button type="submit" value="Agregar">Agregar</button>
           </div>
+        </div>
+      </form>
     </section>
     
     <section id="verReclamos">
       <h2>Reclamos ingresados (los mas recientes primero)</h2>
-      <div>
+      <div class="reclamoItem">
         <h3>Reclamo No.2</h3>
-        <p>Anonimo: Perdi la valija!</p>
-        <p>Empresa: TodoViajes S.A</p>
+        <p>Anonimo: <span class="asunto">Perdi la valija!</span></p>
+        <p>Empresa: <span class="empresa">TodoViajes S.A</span></p>
         <p>Viaje por su empresa y la valija no llego.</p>
-        <button>A mi tambien me paso!</button>
-        <span>Contador:3</span>
+        <div class="actions">
+          <button>A mi tambien me paso!</button>
+          <span>Contador:3</span>
+        </div>
       </div>
-      <div>
+      <div class="reclamoItem">
         <h3>Reclamo No.1</h3>
-        <p>Luis Perez: Pasaje muy caro</p>
-        <p>Empresa: TodoViajes S.A</p>
+        <p>Luis Perez: <span class="asunto">Pasaje muy caro</span></p>
+        <p>Empresa: <span class="empresa">TodoViajes S.A</span></p>
         <p>El pasaje a BsAs esta muy caro, compare con otras companias y el precio de ustedes es mas del doble. Ademas las otras empresas ofrecen mejor catering</p>
-        <button>A mi tambien me paso!</button>
-        <span>Contador:1</span>
+        <div class="actions">
+          <button>A mi tambien me paso!</button>
+          <span>Contador:1</span>
+        </div>
       </div>
     </section>
 
     <section id="estadisticas">
       <h2>Estadisticas</h2>
       <h3>Empresas Seleccionadas</h3>
-      <div>
-      <span>
-        <button>A</button>
-        <button>T</button>
-        <button>*</button>
-      </span>
+      <div class="sort-options">
+        <div class="letter-selectors">
+          <button>A</button>
+          <button class="selected">T</button>
+          <button>*</button>
+        </div>
+        <div class="radios">
+          <input type="radio" id="ordenCreciente" name="selectorOrdenNombre">
+          <label for="ordenCreciente">Orden nombre creciente</label>
+        
+          <input type="radio" id="opcionDecreciente" name="selectorOrdenNombre">
+          <label for="opcionDecreciente">Orden nombre decreciente</label>
+        </div>
       </div>
-      <div style="margin: 20px;">
-      <input type="radio" id="ordenCreciente" name="selectorOrdenNombre">
-      <label for="ordenCreciente">Orden nombre creciente</label>
-      
-      <input type="radio" id="opcionDecreciente" name="selectorOrdenNombre">
-      <label for="opcionDecreciente">Orden nombre decreciente</label>
-    </div>
     <div>
       <table>
         <caption>Empresas que empiezan con T</caption>
@@ -125,32 +128,39 @@
       <p>El promedio de las cantidades considerando todos los reclamos de todas las empresas es:4</p>
       <p>Total de empresas registradas:2</p>
       <h3> Empresas sin Reclamos</h3>
-      <ul>• Alfa(18 de Julio 12345)Rubro: Muebles</ul>
+      <ul>
+        <li>Alfa(18 de Julio 12345)Rubro: Muebles</li>
+      </ul>
       <h3>Rubros con Maxima cantidad de reclamos</h3>
-      <ul>• Viajes: cantidad 4</ul>
+      <ul>
+        <li>Viajes: cantidad 4</li>
+      </ul>
      </div>
-     
     </section>
     <section id="agregarEmpresa">
+      <form action="index.html" target="_self" method="get">
       <h2>Agregar Empresa</h2>
       <h3>Datos:</h3>
         <div>
-        <label for="myTextField">Nombre:</label>
-        <input type="text" id="txtDatosNombre" placeholder="">
+          <label for="myTextField">Nombre:</label>
+          <input type="text" id="txtDatosNombre" placeholder="">
         </div>
         <div>
           <label for="myTextField">Direccion:</label>
           <input type="text" id="txtDatosDireccion" placeholder="">
           </div>
-        <div>
-        <label for="myComboBox">Rubro:</label>
-        <select id="cmbRubro">
-            <option value="opcion1">SinDatos</option>
-        </select>
+        <div >
+          <label for="cmbRubro">Rubro:</label>
+          <div class="flexColumn">
+            <select id="cmbRubro" required>
+                <option value="">Sin datos</option>
+                <option value="gastronomia">Gastronomia</option>
+                <option value="textil">Textil</option>
+            </select>
+            <button>Agregar</button>
+          </div>
         </div>
-        <div>
-          <button>Agregar</button>
-        </div>
+      </form>
         
     </section>
   </main>
