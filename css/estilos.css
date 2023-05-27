@@ -324,6 +324,10 @@ button.selected {
 }
 
 @media (max-width: 1024px) {
+  html {
+    overflow-x: hidden;
+  }
+
   header {
     flex-direction: column;
     padding: 0px;
@@ -363,7 +367,7 @@ button.selected {
 
   nav ul li a {
     padding: 10px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #a17a2f;
     width: 100%;
     display: block;
     text-align: center;
@@ -373,14 +377,14 @@ button.selected {
   nav ul {
     margin-top: 10px;
     width: 100%;
-    border-top: 1px solid #000
+    border-top: 1px solid #a17a2f
   }
 
   nav ul li {
     margin: 0px;
     padding: 0px;
     width: 100%;
-    background-color: #5d6c24;
+    background-color: #C39C51;
   }
   
   .searchForm {
@@ -393,5 +397,14 @@ button.selected {
 
   .searchForm {
     padding-top: 10px;
+  }
+
+  .reclamoItem {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  #agregarReclamo form textarea {
+    width: 280px;
   }
 }
