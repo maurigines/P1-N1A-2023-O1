@@ -1,5 +1,9 @@
+<!-- 
+  Creado para Obligatorio Programacion 1 2023 / ORT Uruguay
+  Autores: Alfonso Carvallo y Mauricio Martinez
+-->
 <!DOCTYPE html>
-<html>
+<html lang="es" charset="UTF-8">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
@@ -9,13 +13,12 @@
 <body>
   <header>
     <div class="main-items">
-      <div id="logo"></div>
+      <div id="logo">Tus Reclamos</div>
       <div class="mobile-buttons">
-        <label class='mobile-button-container' for="mobile-toggle">
-        <div class='mobile-button'></div>
+        <label class='mobile-button-container mobile-button' for="mobile-toggle"></label>
       </div>
     </div>
-    <input id="mobile-toggle" type="checkbox" />
+    <input id="mobile-toggle" type="checkbox">
     <nav>
         <ul>
           <li><a href="#principal">Principal</a></li>
@@ -24,8 +27,8 @@
           <li><a href="#agregarEmpresa">Agregas Empresa</a></li>
           <li class="searchForm">
             <form>
-              <input type="text" name="query" placeholder="">
-              <button type="submit"><div class="search"></div></button>
+              <input type="text" name="query" placeholder="" maxlength="30">
+              <button type="submit"><span class="search"></span></button>
             </form>
           </li>
         </ul>
@@ -38,12 +41,12 @@
       <h3>Este sitio permite ingresar reclamos o quejas y realizar diversas consultas.</h3>
       <p>Sitio desarrollado en el curso de Programacion I - 1er Semestre 2023 - Universidad ORT Uruguay por:</p>
       <div class="estudiante">
-        <a href="img/mauri.jpg" target="_blank"><img src="img/mauri.jpg" alt="Imagen"></a>
-        <span>Mauricio Martinez 255043.</span>
+        <a href="img/mauri.jpg" target="_blank"><img src="img/mauri.jpg" alt="Foto de Mauricio Martinez"></a>
+        <span>Mauricio Martinez, 255043</span>
       </div>
       <div class="estudiante">
-        <a href="img/alfo.jpg" target="_blank"><img src="img/alfo.jpg" alt="Imagen"></a> 
-        <span>Alfonso Carvallo 250427</span>
+        <a href="img/alfo.jpg" target="_blank"><img src="img/alfo.jpg" alt="Foto de Alfonso Carvallo"></a> 
+        <span>Alfonso Carvallo, 250427</span>
       </div>
       
       <a href="#agregarReclamo" class="btnDegrade">Agrega tu reclamo aquí</a>
@@ -52,21 +55,21 @@
       <form action="index.html" target="_self" method="get">
         <h2>Agregar Reclamo</h2>
         <div>
-          <label for="myTextField">Nombre:</label>
-          <input name="nombre" type="text" id="txtNombre" placeholder="Tu Nombre...">
+          <label for="txtNombre">Nombre:</label>
+          <input name="nombre" type="text" id="txtNombre" placeholder="Tu Nombre..." maxlength="30" required>
         </div>
         <div>
-          <label for="myComboBox">Empresa:</label>
+          <label for="cmbEmpresa">Empresa:</label>
           <select name="empresa" id="cmbEmpresa">
               <option value="opcion1">Todo Viajes S.A</option>
               <option value="opcion2">Alfa</option>
           </select>
         </div>
         <div>
-          <label for="myTextField">Reclamo:</label>
+          <label for="txtReclamo">Reclamo:</label>
           <div class="flexColumn">
-            <input name="reclamo" type="text" id="txtReclamo" placeholder="El titulo es...">
-            <textarea name="reclamoBody" id="txtAreaReclamo" placeholder="Y tu reclamo es..."></textarea>
+            <input name="reclamo" type="text" id="txtReclamo" placeholder="El título es..." maxlength="30" required>
+            <textarea name="reclamoBody" id="txtAreaReclamo" placeholder="Y tu reclamo es..." required></textarea>
             <button type="submit" value="Agregar">Agregar</button>
           </div>
         </div>
@@ -74,14 +77,14 @@
     </section>
     
     <section id="verReclamos">
-      <h2>Reclamos ingresados (los mas recientes primero)</h2>
+      <h2>Reclamos ingresados (los más recientes primero)</h2>
       <div class="reclamoItem">
         <h3>Reclamo No.2</h3>
-        <p>Anonimo: <span class="asunto">Perdi la valija!</span></p>
+        <p>Anónimo: <span class="asunto">Perdí la valija!</span></p>
         <p>Empresa: <span class="empresa">TodoViajes S.A</span></p>
-        <p>Viaje por su empresa y la valija no llego.</p>
+        <p>Viaje por su empresa y la valija no llegó.</p>
         <div class="actions">
-          <button>A mi tambien me paso!</button>
+          <button>A mi también me pasó!</button>
           <span>Contador:3</span>
         </div>
       </div>
@@ -89,16 +92,16 @@
         <h3>Reclamo No.1</h3>
         <p>Luis Perez: <span class="asunto">Pasaje muy caro</span></p>
         <p>Empresa: <span class="empresa">TodoViajes S.A</span></p>
-        <p>El pasaje a BsAs esta muy caro, compare con otras companias y el precio de ustedes es mas del doble. Ademas las otras empresas ofrecen mejor catering</p>
+        <p>El pasaje a BsAs está muy caro, comparé con otras compañías y el precio de ustedes es más del doble. Además las otras empresas ofrecen mejor catering</p>
         <div class="actions">
-          <button>A mi tambien me paso!</button>
+          <button>A mi también me paso!</button>
           <span>Contador:1</span>
         </div>
       </div>
     </section>
 
     <section id="estadisticas">
-      <h2>Estadisticas</h2>
+      <h2>Estadísticas</h2>
       <h3>Empresas Seleccionadas</h3>
       <div class="sort-options">
         <div class="letter-selectors">
@@ -119,7 +122,7 @@
         <caption>Empresas que empiezan con T</caption>
          <tr>
           <th>Nombre</th>
-          <th>Direccion</th>
+          <th>Dirección</th>
           <th>Rubro</th>
           <th>Cantidad</th>
         </tr>
@@ -132,14 +135,14 @@
      </table>
      </div>
      <div>
-      <h3>Informacion General</h3>
+      <h3>Información General</h3>
       <p>El promedio de las cantidades considerando todos los reclamos de todas las empresas es:4</p>
       <p>Total de empresas registradas:2</p>
-      <h3> Empresas sin Reclamos</h3>
+      <h3>Empresas sin Reclamos</h3>
       <ul>
         <li>Alfa(18 de Julio 12345)Rubro: Muebles</li>
       </ul>
-      <h3>Rubros con Maxima cantidad de reclamos</h3>
+      <h3>Rubros con Máxima cantidad de reclamos</h3>
       <ul>
         <li>Viajes: cantidad 4</li>
       </ul>
@@ -150,29 +153,24 @@
       <h2>Agregar Empresa</h2>
       <h3>Datos:</h3>
         <div>
-          <label for="myTextField">Nombre:</label>
-          <input type="text" id="txtDatosNombre" placeholder="">
+          <label for="txtDatosNombre">Nombre:</label>
+          <input type="text" id="txtDatosNombre" placeholder="" maxlength="30" required>
         </div>
         <div>
-          <label for="myTextField">Direccion:</label>
-          <input type="text" id="txtDatosDireccion" placeholder="">
+          <label for="txtDatosDireccion">Dirección:</label>
+          <input type="text" id="txtDatosDireccion" placeholder="" maxlength="30" required>
           </div>
-        <div >
+        <div>
           <label for="cmbRubro">Rubro:</label>
           <div class="flexColumn">
-            <select id="cmbRubro" required>
-                <option value="">Sin datos</option>
-                <option value="gastronomia">Gastronomia</option>
-                <option value="textil">Textil</option>
+            <select id="cmbRubro">
+                <option value="Sin Datos">Sin datos</option>
             </select>
             <button>Agregar</button>
           </div>
         </div>
       </form>
-        
     </section>
   </main>
-
-  
 </body>
 </html>

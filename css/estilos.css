@@ -1,3 +1,7 @@
+/** 
+  Creado para Obligatorio Programacion 1 2023 / ORT Uruguay
+  Autores: Alfonso Carvallo y Mauricio Martinez
+*/
 body, main, section, header, footer, h1, h2, h3, h4, p, ul, li {
   margin: 0px;
   padding: 0px;
@@ -21,6 +25,23 @@ section {
 
 body {
   background-color: #B0C858;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+  padding: 20px;
+}
+
+nav ul li a {
+  color: green;
 }
 
 header {
@@ -50,6 +71,7 @@ main img {
 }
 
 #logo {
+  text-indent: -999px;
   background-image: url('../img/logo-200px.png');
   display: block;
   width: 130px;
@@ -150,23 +172,6 @@ main img {
   background-color: #99F997;
   margin: 15px 15px 5px 5px;}
 
-nav ul {
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-nav ul li {
-  list-style: none;
-  padding: 20px;
-}
-
-nav ul li a {
-  color: green;
-}
-
 .searchForm {
   margin-left: auto;
 }
@@ -219,7 +224,6 @@ nav ul li a {
   font-size: 22px;
   cursor: pointer;
   border-radius: 17px;
-  background-image: linear-gradient( #B1C255, #BF7F4F);
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -228,9 +232,11 @@ nav ul li a {
   text-decoration: none;
   border: 2px solid #000;
   font-weight: 500;
+  background: linear-gradient(#B1C255,#BF7F4F);  
 }
 
 .btnDegrade:hover {
+  background: linear-gradient(#e0ff36,#9f785b);  
   cursor: pointer;
 }
 
@@ -296,6 +302,11 @@ button.selected {
   background-color:black;
 }
 
+.mobile-button {
+  right: 20px;
+  position: absolute;
+}
+
 .mobile-button,
 .mobile-button::before,
 .mobile-button::after {
@@ -316,11 +327,6 @@ button.selected {
 .mobile-button::after {
   content: '';
   margin-top: 8px;
-}
-
-.mobile-button-container {
-  right: 50px;
-  position: absolute;
 }
 
 @media (max-width: 1024px) {
