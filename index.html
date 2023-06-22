@@ -51,10 +51,10 @@
         <span>Alfonso Carvallo, 250427</span>
       </div>
       
-      <a href="#agregarReclamo" class="btnDegrade">Agrega tu reclamo aquí</a>
+      <button href="#agregarReclamo" id='btnSeccionReclamo'class="btnDegrade">Agrega tu reclamo aquí</button>
     </section>
     <section id="agregarReclamo">
-      <form action="index.html" target="_self" method="get">
+      <form id="formReclamo" >
         <h2>Agregar Reclamo</h2>
         <div>
           <label for="txtNombre">Nombre:</label>
@@ -63,8 +63,8 @@
         <div>
           <label for="cmbEmpresa">Empresa:</label>
           <select name="empresa" id="cmbEmpresa">
-              <option value="opcion1">Todo Viajes S.A</option>
-              <option value="opcion2">Alfa</option>
+              <option value="sin-datos">Sin datos</option>
+              
           </select>
         </div>
         <div>
@@ -72,7 +72,7 @@
           <div class="flexColumn">
             <input name="reclamo" type="text" id="txtReclamo" placeholder="El título es..." maxlength="30" required>
             <textarea name="reclamoBody" id="txtAreaReclamo" placeholder="Y tu reclamo es..." required></textarea>
-            <button type="submit" value="Agregar">Agregar</button>
+            <button id="btnAgregarReclamo" value="Agregar">Agregar</button>
           </div>
         </div>
       </form>
@@ -151,7 +151,7 @@
      </div>
     </section>
     <section id="agregarEmpresa">
-      <form action="index.html" target="_self" method="get">
+      <form id="formEmpresa" >
       <h2>Agregar Empresa</h2>
       <h3>Datos:</h3>
         <div>
@@ -166,9 +166,15 @@
           <label for="cmbRubro">Rubro:</label>
           <div class="flexColumn">
             <select id="cmbRubro">
-                <option value="Sin Datos">Sin datos</option>
+                <option value="viajes">Viajes</option>
+                <option value="restaurantes">Restaurantes</option>
+                <option value="bancos">Bancos</option>
+                <option value="muebles">Muebles</option>
+                <option value="autos">Autos</option>
+                <option value="servicios">Servicios</option>
+                <option value="general">General</option>          
             </select>
-            <button>Agregar</button>
+            <button id="btnAgregarEmpresa">Agregar</button>
           </div>
         </div>
       </form>
