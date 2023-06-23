@@ -1,14 +1,14 @@
 // Inicializando el sistema
 const sistema = new Sistema();
 
+// Cargamos Rubros
+const rubros = ['viajes', 'restaurantes', 'bancos', 'muebles', 'autos', 'servicios', 'general'];
+for (let rubroNombre of rubros) {
+    let rubro = new Rubro(rubroNombre);
+    sistema.rubros.push(rubro);
+}; 
+
 window.onload = () => {
-    // Cargamos Rubros
-    const rubros = ['viajes', 'restaurantes', 'bancos', 'muebles', 'autos', 'servicios', 'general'];
-    for (let rubroNombre of rubros) {
-        let rubro = new Rubro(rubroNombre);
-        sistema.rubros.push(rubro);
-    }; 
-    
     // Traer elementos a usar despues
     const enlacesNav = document.querySelectorAll('nav a');
     const btnAgregarReclamo = document.getElementById('btnAgregarReclamo');
@@ -72,15 +72,20 @@ window.onload = () => {
 
 
 function mostrarSeccion (section) {
+    // Ocultamos todas las secciones.
     const secciones = document.querySelectorAll('section');
     for (const seccion of secciones) seccion.style.display = 'none';
-    console.log(section);
+
+    // Mostramos la que queremos.
     document.getElementById(section).style.display = 'block';
 }
 
 function recargarEmpresas () {
+    // Vaciamos todas las empresas.
     let combo = document.getElementById('cmbEmpresa');
     combo.innerHTML = '';
+
+    // Para todas las encontradas, le agregamos las opciones.
     for (let empresa of sistema.empresas) {
         const option = document.createElement('option');
         option.value = empresa.nombre;
@@ -90,8 +95,11 @@ function recargarEmpresas () {
 }
 
 function recargarRubros () {
+    // Vaciamos todos los rubros.
     let combo = document.getElementById('cmbRubro');
     combo.innerHTML = '';
+
+    // Para cada rubro encontrado en el sistema, creamos las opciones.
     for (let rubro of sistema.rubros) {
         const option = document.createElement('option');
         option.value = rubro.nombre;
@@ -156,18 +164,26 @@ function recargarReclamos(){
         elementoReclamo.appendChild(boxTextoReclamo)
         elementoReclamo.appendChild(boxAcciones);
 
+        // Finalmente agregamos el reclamo a la caja.
         cajaReclamos.appendChild(elementoReclamo);
     }
 }
 
 function incrementarReclamo(reclamoId){
+    // Traemos el reclamo que queremos aumentar.
     let reclamoAumentar = document.getElementById(reclamoId);
+    let indice = reclamoAumentar.getAttribute('indice');
+
+    // Buscamos el div donde le vamos a meter los reclamos.
     let reclamoCount = reclamoAumentar.getElementsByClassName('contador')[0];
-    let reclamoTotal = parseInt(reclamoCount.innerHTML);
+
+    // Traemos la cantidad de reclamos actuales y sumamos 1.
+    let reclamoTotal = sistema.reclamos[indice].contador;
     reclamoTotal++;
+
+    // Lo metemos en la visualizacion.
     reclamoCount.innerHTML = reclamoTotal;
 
     // Incrementamos en sistema para evitar bug (al recargar reclamos.)
-    let indice = reclamoAumentar.getAttribute('indice');
     sistema.reclamos[indice].contador = reclamoTotal;
 }

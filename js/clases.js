@@ -7,11 +7,11 @@ class Sistema{
 }
 
 class Empresa{
-    constructor(nombre, direccion, rubro){
-
+    constructor(nombre, direccion, rubro, reclamos = 0){
         this.nombre = nombre;
         this.direccion = direccion;
         this.rubro = rubro;
+        this.reclamos = reclamos;
     }
 }
 
