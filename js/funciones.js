@@ -1,7 +1,7 @@
-window.onload = () => {
-    // Inicializando el sistema
-    const sistema = new Sistema();
+// Inicializando el sistema
+const sistema = new Sistema();
 
+window.onload = () => {
     // Cargamos Rubros
     const rubros = ['viajes', 'restaurantes', 'bancos', 'muebles', 'autos', 'servicios', 'general'];
     for (let rubroNombre of rubros) {
@@ -58,7 +58,7 @@ window.onload = () => {
             sistema.reclamos.push(reclamo);
 
             // Recargamos los reclamos
-            recargarReclamos(sistema);
+            recargarReclamos();
 
             // Limpiar visualizacion
             form.reset();
@@ -66,9 +66,10 @@ window.onload = () => {
     });
 
     // Inicializacion Final.
-    recargarRubros(sistema);
+    recargarRubros();
     mostrarSeccion('principal');
 };
+
 
 function mostrarSeccion (section) {
     const secciones = document.querySelectorAll('section');
@@ -77,7 +78,7 @@ function mostrarSeccion (section) {
     document.getElementById(section).style.display = 'block';
 }
 
-function recargarEmpresas (sistema) {
+function recargarEmpresas () {
     let combo = document.getElementById('cmbEmpresa');
     combo.innerHTML = '';
     for (let empresa of sistema.empresas) {
@@ -88,7 +89,7 @@ function recargarEmpresas (sistema) {
     }
 }
 
-function recargarRubros (sistema) {
+function recargarRubros () {
     let combo = document.getElementById('cmbRubro');
     combo.innerHTML = '';
     for (let rubro of sistema.rubros) {
@@ -99,7 +100,7 @@ function recargarRubros (sistema) {
     }
 }
 
-function recargarReclamos(sistema){
+function recargarReclamos(){
     // Vaciamos contenedor.
     let cajaReclamos = document.getElementById('cajaReclamos');
     cajaReclamos.innerHTML = '';
@@ -111,6 +112,7 @@ function recargarReclamos(sistema){
         let elementoReclamo = document.createElement('div');
         elementoReclamo.className = "reclamoItem";
         elementoReclamo.id = reclamoId;
+        elementoReclamo.setAttribute("indice", indice - 1);
 
         // Armando H3
         let title = document.createElement('h3');
@@ -145,7 +147,7 @@ function recargarReclamos(sistema){
         botonAcciones.innerHTML = 'A mi tambien me pasó!';
         
         boxAcciones.appendChild(botonAcciones);
-        boxAcciones.innerHTML += '<span>Contador:<span class="contador">0</span></span>';
+        boxAcciones.innerHTML += '<span>Contador:<span class="contador">' + reclamo.contador + '</span></span>';
 
         // Agregando elementos a la 
         elementoReclamo.appendChild(title)
@@ -155,19 +157,17 @@ function recargarReclamos(sistema){
         elementoReclamo.appendChild(boxAcciones);
 
         cajaReclamos.appendChild(elementoReclamo);
-
-        // Adding Event listener.
     }
 }
 
 function incrementarReclamo(reclamoId){
-    console.log('Funca el boton');
-    console.log(reclamoId);
     let reclamoAumentar = document.getElementById(reclamoId);
-    console.log(reclamoAumentar);
-
     let reclamoCount = reclamoAumentar.getElementsByClassName('contador')[0];
     let reclamoTotal = parseInt(reclamoCount.innerHTML);
     reclamoTotal++;
     reclamoCount.innerHTML = reclamoTotal;
+
+    // Incrementamos en sistema para evitar bug (al recargar reclamos.)
+    let indice = reclamoAumentar.getAttribute('indice');
+    sistema.reclamos[indice].contador = reclamoTotal;
 }
