@@ -45,7 +45,6 @@ nav ul li a {
 }
 
 header {
-  position: fixed;
   background: #B0C858;
   width: 100%;
   top:0px;
@@ -81,17 +80,14 @@ main img {
 
 #principal{
   background-color: #FF9F79;
-  margin-top: 60px;
 }
 
 #verReclamos{
   background-color: #C07651;
-  margin: 15px 15px 5px 5px;
 }
 
 #estadisticas{
   background-color: #C39C51 ;
-  margin: 15px 15px 5px 5px;
 }
   
 #agregarReclamo{  
@@ -170,7 +166,7 @@ main img {
 
 #agregarEmpresa{
   background-color: #99F997;
-  margin: 15px 15px 5px 5px;}
+}
 
 .searchForm {
   margin-left: auto;

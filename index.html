@@ -3,7 +3,7 @@
   Autores: Alfonso Carvallo y Mauricio Martinez
 -->
 <!DOCTYPE html>
-<html lang="es" charset="UTF-8">
+<html lang="es">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
@@ -51,7 +51,7 @@
         <span>Alfonso Carvallo, 250427</span>
       </div>
       
-      <button href="#agregarReclamo" id='btnSeccionReclamo'class="btnDegrade">Agrega tu reclamo aquí</button>
+      <button type="button" id='btnSeccionReclamo'class="btnDegrade">Agrega tu reclamo aquí</button>
     </section>
     <section id="agregarReclamo">
       <form id="formReclamo" >
@@ -72,7 +72,7 @@
           <div class="flexColumn">
             <input name="reclamo" type="text" id="txtReclamo" placeholder="El título es..." maxlength="30" required>
             <textarea name="reclamoBody" id="txtAreaReclamo" placeholder="Y tu reclamo es..." required></textarea>
-            <button id="btnAgregarReclamo" value="Agregar">Agregar</button>
+            <button type="button" id="btnAgregarReclamo" value="Agregar">Agregar</button>
           </div>
         </div>
       </form>
@@ -80,25 +80,8 @@
     
     <section id="verReclamos">
       <h2>Reclamos ingresados (los más recientes primero)</h2>
-      <div class="reclamoItem">
-        <h3>Reclamo No.2</h3>
-        <p>Anónimo: <span class="asunto">Perdí la valija!</span></p>
-        <p>Empresa: <span class="empresa">TodoViajes S.A</span></p>
-        <p>Viaje por su empresa y la valija no llegó.</p>
-        <div class="actions">
-          <button>A mi también me pasó!</button>
-          <span>Contador:3</span>
-        </div>
-      </div>
-      <div class="reclamoItem">
-        <h3>Reclamo No.1</h3>
-        <p>Luis Perez: <span class="asunto">Pasaje muy caro</span></p>
-        <p>Empresa: <span class="empresa">TodoViajes S.A</span></p>
-        <p>El pasaje a BsAs está muy caro, comparé con otras compañías y el precio de ustedes es más del doble. Además las otras empresas ofrecen mejor catering</p>
-        <div class="actions">
-          <button>A mi también me paso!</button>
-          <span>Contador:1</span>
-        </div>
+      <div id="cajaReclamos">
+        <div class="no-reclamos">No hay ningun reclamo :)</div>
       </div>
     </section>
 
@@ -151,7 +134,7 @@
      </div>
     </section>
     <section id="agregarEmpresa">
-      <form id="formEmpresa" >
+      <form id="formEmpresa">
       <h2>Agregar Empresa</h2>
       <h3>Datos:</h3>
         <div>
@@ -166,15 +149,9 @@
           <label for="cmbRubro">Rubro:</label>
           <div class="flexColumn">
             <select id="cmbRubro">
-                <option value="viajes">Viajes</option>
-                <option value="restaurantes">Restaurantes</option>
-                <option value="bancos">Bancos</option>
-                <option value="muebles">Muebles</option>
-                <option value="autos">Autos</option>
-                <option value="servicios">Servicios</option>
-                <option value="general">General</option>          
+                <option value="sin-rubros">Sin Rubros</option> 
             </select>
-            <button id="btnAgregarEmpresa">Agregar</button>
+            <button type="button" id="btnAgregarEmpresa">Agregar</button>
           </div>
         </div>
       </form>
