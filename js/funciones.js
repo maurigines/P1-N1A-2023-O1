@@ -1,6 +1,6 @@
 // Inicializando el sistema
 const sistema = new Sistema();
-
+let identificadorReclamo = 1;
 // Cargamos Rubros
 const rubros = [
     'viajes',
@@ -104,6 +104,7 @@ window.onload = () => {
         if (form.checkValidity()) {
             // Traemos los datos del form
             const nombre = document.getElementById('txtNombre').value;
+            const numeroReclamo = identificadorReclamo;
             const empresa = document.getElementById('cmbEmpresa').value;
             const tituloReclamo = document.getElementById('txtReclamo').value;
             const textoReclamo =
@@ -112,11 +113,14 @@ window.onload = () => {
             // Creamos un reclamo nuevo
             const reclamo = new Reclamo(
                 nombre,
+                numeroReclamo,
                 empresa,
                 tituloReclamo,
                 textoReclamo
             );
 
+            //Incrementamos Identificador Unico de reclamos
+            identificadorReclamo++;
             // Sumar +1 a reclamos para esta empresa.
             sistema.empresas
                 .find(item => {
@@ -189,10 +193,10 @@ function recargarReclamos (textoBusqueda = '') {
     // Vaciamos contenedor.
     let cajaReclamos = document.getElementById('cajaReclamos');
     cajaReclamos.innerHTML = '';
-    let indice = 0;
 
     // Traer reclamos de todas las empresaas y lo metemos en un array chato.
     let reclamos = sistema.empresas.flatMap(({ reclamos }) => reclamos);
+    reclamos.sort((a, b) => b.numeroReclamo - a.numeroReclamo);
 
     // Si tenemos un texto que buscar, filtramos los resultados del flatMap.
     if (textoBusqueda != '') {
@@ -223,16 +227,16 @@ function recargarReclamos (textoBusqueda = '') {
     }
 
     // Recorremos.
+    reclamos.sort((a, b) => b.numeroReclamo - a.numeroReclamo);
     for (let reclamo of reclamos) {
-        indice++;
         let elementoReclamo = document.createElement('div');
         elementoReclamo.className = 'reclamoItem';
         elementoReclamo.id = reclamo.nombre;
-        elementoReclamo.setAttribute('indice', indice - 1);
+        elementoReclamo.setAttribute('indice', reclamo.numeroReclamo);
 
         // Armando H3
         let title = document.createElement('h3');
-        title.innerHTML = 'Reclamo No.' + indice;
+        title.innerHTML = 'Reclamo No.' + reclamo.numeroReclamo;
 
         // Armando primer P.
         let boxNombreTitulo = document.createElement('p');
@@ -433,10 +437,8 @@ function cargarTabla (letra) {
 
     // Checkeando opcion.
     if (opcionCreciente) {
-        console.log('Entra en opcion creciente');
         empresas.sort((a, b) => (a.nombre > b.nombre ? 1 : -1));
     } else if (opcionDecreciente) {
-        console.log('Entra en decreciente');
         empresas.sort((a, b) => (a.nombre > b.nombre ? -1 : 1));
     }
 

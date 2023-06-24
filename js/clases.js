@@ -15,12 +15,20 @@ class Empresa {
 }
 
 class Reclamo {
-    constructor (nombre, empresa, tituloReclamo, textoReclamo, contador = 0) {
+    constructor (
+        nombre,
+        numeroReclamo,
+        empresa,
+        tituloReclamo,
+        textoReclamo,
+        contador = 0
+    ) {
         this.nombre = nombre;
         this.empresa = empresa;
         this.tituloReclamo = tituloReclamo;
         this.textoReclamo = textoReclamo;
         this.contador = contador;
+        this.numeroReclamo = numeroReclamo;
     }
 }
 
