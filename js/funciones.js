@@ -2,11 +2,19 @@
 const sistema = new Sistema();
 
 // Cargamos Rubros
-const rubros = ['viajes', 'restaurantes', 'bancos', 'muebles', 'autos', 'servicios', 'general'];
+const rubros = [
+    'viajes',
+    'restaurantes',
+    'bancos',
+    'muebles',
+    'autos',
+    'servicios',
+    'general',
+];
 for (let rubroNombre of rubros) {
     let rubro = new Rubro(rubroNombre);
     sistema.rubros.push(rubro);
-}; 
+}
 
 window.onload = () => {
     // Traer elementos a usar despues
@@ -17,9 +25,9 @@ window.onload = () => {
     const radioCreciente = document.getElementById('opcionCreciente');
     const radioDecreciente = document.getElementById('opcionDecreciente');
     const btnSearchBox = document.getElementById('searchBoxButton');
-    
+
     const formSearch = document.getElementById('formSearch');
-    formSearch.addEventListener('keypress', function(e) {
+    formSearch.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
             buscarEnReclamos();
@@ -31,16 +39,20 @@ window.onload = () => {
     });
 
     radioCreciente.addEventListener('click', () => {
-        let letraCargada = document.getElementById('letterSelectorsId').getElementsByClassName('selected')[0].innerHTML;
+        let letraCargada = document
+            .getElementById('letterSelectorsId')
+            .getElementsByClassName('selected')[0].innerHTML;
         cargarTabla(letraCargada);
     });
 
     radioDecreciente.addEventListener('click', () => {
-        let letraCargada = document.getElementById('letterSelectorsId').getElementsByClassName('selected')[0].innerHTML;
+        let letraCargada = document
+            .getElementById('letterSelectorsId')
+            .getElementsByClassName('selected')[0].innerHTML;
         cargarTabla(letraCargada);
     });
 
-    for(let enlace of enlacesNav){
+    for (let enlace of enlacesNav) {
         enlace.addEventListener('click', function (evento) {
             evento.preventDefault();
             const seccionId = this.getAttribute('href').substring(1);
@@ -56,9 +68,13 @@ window.onload = () => {
             const rubro = document.getElementById('cmbRubro').value;
 
             // Checkeamos si existe una empresa con el mismo nombre.
-            let encontramosEmpresas = sistema.empresas.filter((empresa) => empresa.nombre === nombre).length;
-            if(encontramosEmpresas > 0){
-                alert('La empresa no puede tener el mismo nombre que una ya ingresada');
+            let encontramosEmpresas = sistema.empresas.filter(
+                empresa => empresa.nombre === nombre
+            ).length;
+            if (encontramosEmpresas > 0) {
+                alert(
+                    'La empresa no puede tener el mismo nombre que una ya ingresada'
+                );
                 form.reset();
                 return false;
             }
@@ -90,16 +106,28 @@ window.onload = () => {
             const nombre = document.getElementById('txtNombre').value;
             const empresa = document.getElementById('cmbEmpresa').value;
             const tituloReclamo = document.getElementById('txtReclamo').value;
-            const textoReclamo = document.getElementById('txtAreaReclamo').value;
-            
+            const textoReclamo =
+                document.getElementById('txtAreaReclamo').value;
+
             // Creamos un reclamo nuevo
-            const reclamo = new Reclamo(nombre, empresa, tituloReclamo, textoReclamo);
+            const reclamo = new Reclamo(
+                nombre,
+                empresa,
+                tituloReclamo,
+                textoReclamo
+            );
 
             // Sumar +1 a reclamos para esta empresa.
-            sistema.empresas.find((item) => { return item.nombre == empresa}).reclamos.push(reclamo);
+            sistema.empresas
+                .find(item => {
+                    return item.nombre == empresa;
+                })
+                .reclamos.push(reclamo);
 
             // Logica para actualizar valor de reclamos en rubros.
-            let rubro = sistema.empresas.find((item) => { return item.nombre == empresa}).rubro;
+            let rubro = sistema.empresas.find(item => {
+                return item.nombre == empresa;
+            }).rubro;
             actualizarRubro(rubro);
 
             // Recargamos partes dinamicas.
@@ -119,7 +147,6 @@ window.onload = () => {
     recargarRubros();
     mostrarSeccion('principal');
 };
-
 
 function mostrarSeccion (section) {
     // Ocultamos todas las secciones.
@@ -158,23 +185,31 @@ function recargarRubros () {
     }
 }
 
-function recargarReclamos(textoBusqueda = ''){
+function recargarReclamos (textoBusqueda = '') {
     // Vaciamos contenedor.
     let cajaReclamos = document.getElementById('cajaReclamos');
     cajaReclamos.innerHTML = '';
     let indice = 0;
 
     // Traer reclamos de todas las empresaas y lo metemos en un array chato.
-    let reclamos = sistema.empresas.flatMap(({ reclamos }) => reclamos );
+    let reclamos = sistema.empresas.flatMap(({ reclamos }) => reclamos);
 
     // Si tenemos un texto que buscar, filtramos los resultados del flatMap.
-    if(textoBusqueda != ''){
+    if (textoBusqueda != '') {
         let textoMinuscula = textoBusqueda.toLowerCase();
 
-        let reclamosPorNombre = reclamos.filter((reclamo) => reclamo.nombre.toLowerCase().includes(textoMinuscula));
-        let reclamosPorEmpresa = reclamos.filter((reclamo) => reclamo.empresa.toLowerCase().includes(textoMinuscula));
-        let reclamosPorTitulo = reclamos.filter((reclamo) => reclamo.tituloReclamo.toLowerCase().includes(textoMinuscula));
-        let reclamosPorTexto = reclamos.filter((reclamo) => reclamo.textoReclamo.toLowerCase().includes(textoMinuscula));
+        let reclamosPorNombre = reclamos.filter(reclamo =>
+            reclamo.nombre.toLowerCase().includes(textoMinuscula)
+        );
+        let reclamosPorEmpresa = reclamos.filter(reclamo =>
+            reclamo.empresa.toLowerCase().includes(textoMinuscula)
+        );
+        let reclamosPorTitulo = reclamos.filter(reclamo =>
+            reclamo.tituloReclamo.toLowerCase().includes(textoMinuscula)
+        );
+        let reclamosPorTexto = reclamos.filter(reclamo =>
+            reclamo.textoReclamo.toLowerCase().includes(textoMinuscula)
+        );
 
         // Unimos todo y de-duplicamos.
         reclamos = [
@@ -188,12 +223,12 @@ function recargarReclamos(textoBusqueda = ''){
     }
 
     // Recorremos.
-    for(let reclamo of reclamos){
+    for (let reclamo of reclamos) {
         indice++;
         let elementoReclamo = document.createElement('div');
-        elementoReclamo.className = "reclamoItem";
+        elementoReclamo.className = 'reclamoItem';
         elementoReclamo.id = reclamo.nombre;
-        elementoReclamo.setAttribute("indice", indice - 1);
+        elementoReclamo.setAttribute('indice', indice - 1);
 
         // Armando H3
         let title = document.createElement('h3');
@@ -206,7 +241,7 @@ function recargarReclamos(textoBusqueda = ''){
         tituloReclamo.innerHTML = reclamo.tituloReclamo;
         boxNombreTitulo.innerHTML = reclamo.nombre + ':';
         boxNombreTitulo.appendChild(tituloReclamo);
-        
+
         // Armando el segundo P.
         let boxEmpresa = document.createElement('p');
         let empresaReclamo = document.createElement('span');
@@ -224,17 +259,27 @@ function recargarReclamos(textoBusqueda = ''){
         boxAcciones.className = 'actions';
 
         let botonAcciones = document.createElement('button');
-        botonAcciones.setAttribute("onclick","incrementarReclamo(\""+reclamo.empresa+"\",\""+reclamo.nombre+"\");");
+        botonAcciones.setAttribute(
+            'onclick',
+            'incrementarReclamo("' +
+                reclamo.empresa +
+                '","' +
+                reclamo.nombre +
+                '");'
+        );
         botonAcciones.innerHTML = 'A mi tambien me pasó!';
-        
-        boxAcciones.appendChild(botonAcciones);
-        boxAcciones.innerHTML += '<span>Contador:<span class="contador">' + reclamo.contador + '</span></span>';
 
-        // Agregando elementos a la 
-        elementoReclamo.appendChild(title)
-        elementoReclamo.appendChild(boxNombreTitulo)
-        elementoReclamo.appendChild(boxEmpresa)
-        elementoReclamo.appendChild(boxTextoReclamo)
+        boxAcciones.appendChild(botonAcciones);
+        boxAcciones.innerHTML +=
+            '<span>Contador:<span class="contador">' +
+            reclamo.contador +
+            '</span></span>';
+
+        // Agregando elementos a la
+        elementoReclamo.appendChild(title);
+        elementoReclamo.appendChild(boxNombreTitulo);
+        elementoReclamo.appendChild(boxEmpresa);
+        elementoReclamo.appendChild(boxTextoReclamo);
         elementoReclamo.appendChild(boxAcciones);
 
         // Finalmente agregamos el reclamo a la caja.
@@ -242,7 +287,7 @@ function recargarReclamos(textoBusqueda = ''){
     }
 }
 
-function incrementarReclamo(empresaId, reclamoId){
+function incrementarReclamo (empresaId, reclamoId) {
     // Traemos el reclamo que queremos aumentar.
     let reclamoAumentar = document.getElementById(reclamoId);
     let indice = reclamoAumentar.getAttribute('indice');
@@ -251,136 +296,194 @@ function incrementarReclamo(empresaId, reclamoId){
     let reclamoCount = reclamoAumentar.getElementsByClassName('contador')[0];
 
     // Traemos la cantidad de reclamos actuales y sumamos 1.
-    let empresaEncontrada = sistema.empresas.find(item => item.nombre == empresaId);
-    empresaEncontrada.reclamos.find(item => item.nombre == reclamoId).contador++;
+    let empresaEncontrada = sistema.empresas.find(
+        item => item.nombre == empresaId
+    );
+    empresaEncontrada.reclamos.find(item => item.nombre == reclamoId)
+        .contador++;
 
     // Lo traemos para aumentarlo en la visualizacion.
-    let reclamoTotal = empresaEncontrada.reclamos.find(item => item.nombre == reclamoId).contador;
+    let reclamoTotal = empresaEncontrada.reclamos.find(
+        item => item.nombre == reclamoId
+    ).contador;
     reclamoCount.innerHTML = reclamoTotal;
 }
 
-function recargarEmpresasSinReclamos(){
-    // Limpiamos.    
+function recargarEmpresasSinReclamos () {
+    // Limpiamos.
     document.getElementById('empresasSinReclamos').innerHTML = '';
 
-    let empresasSinReclamos = sistema.empresas.filter(empresa => empresa.reclamos.length == 0);
+    let empresasSinReclamos = sistema.empresas.filter(
+        empresa => empresa.reclamos.length == 0
+    );
 
-    if(empresasSinReclamos.length === 0){
-        document.getElementById('empresasSinReclamos').innerHTML += '<li>No hay empresas sin reclamos :(</li>';
+    if (empresasSinReclamos.length === 0) {
+        document.getElementById('empresasSinReclamos').innerHTML +=
+            '<li>No hay empresas sin reclamos :(</li>';
     } else {
-        for (let empresa of empresasSinReclamos){
-            document.getElementById('empresasSinReclamos').innerHTML += '<li>' +
-            empresa.nombre + ', ' + empresa.direccion + ', ' + uppercaseFirstLetter({nombre: empresa.rubro}) + '</li>';
+        for (let empresa of empresasSinReclamos) {
+            document.getElementById('empresasSinReclamos').innerHTML +=
+                '<li>' +
+                empresa.nombre +
+                ', ' +
+                empresa.direccion +
+                ', ' +
+                uppercaseFirstLetter({ nombre: empresa.rubro }) +
+                '</li>';
         }
     }
 }
 
-function recargarRubrosMaximaCantidad(){
+function recargarRubrosMaximaCantidad () {
     // Limpiamos.
     document.getElementById('rubrosMaximaCantidad').innerHTML = '';
-    
-    //Traemos los rubros con mas reclamos:
-    let rubros = sistema.rubros.sort((a,b) => a.cantidadReclamos - b.cantidadReclamos);
-    let rubrosValorAlto = rubros.slice(-1)[0];
-    let rubrosFiltrados = rubros.filter((item) => item.cantidadReclamos === rubrosValorAlto.cantidadReclamos);
 
-    for (let rubro of rubrosFiltrados){
-        document.getElementById('rubrosMaximaCantidad').innerHTML += 
-        '<li>'+ uppercaseFirstLetter(rubro) +': cantidad '+rubro.cantidadReclamos+'</li>';
+    //Traemos los rubros con mas reclamos:
+    let rubros = sistema.rubros.sort(
+        (a, b) => a.cantidadReclamos - b.cantidadReclamos
+    );
+    let rubrosValorAlto = rubros.slice(-1)[0];
+    let rubrosFiltrados = rubros.filter(
+        item => item.cantidadReclamos === rubrosValorAlto.cantidadReclamos
+    );
+
+    for (let rubro of rubrosFiltrados) {
+        document.getElementById('rubrosMaximaCantidad').innerHTML +=
+            '<li>' +
+            uppercaseFirstLetter(rubro) +
+            ': cantidad ' +
+            rubro.cantidadReclamos +
+            '</li>';
     }
 }
 
-function actualizarRubro(rubro){
+function actualizarRubro (rubro) {
     //Encuentra el rubro y le suma++ a cantidadReclamos.
-    sistema.rubros.find((item) => item.nombre === rubro).cantidadReclamos++;
+    sistema.rubros.find(item => item.nombre === rubro).cantidadReclamos++;
 }
 
-function actualizarEmpresasRegistradas(){
-    document.getElementById('empresasRegistradas').innerHTML = sistema.empresas.length;
+function actualizarEmpresasRegistradas () {
+    document.getElementById('empresasRegistradas').innerHTML =
+        sistema.empresas.length;
 }
 
-function actualizarEmpresasRegistradasConReclamos(){
-    document.getElementById('empresasRegistradasConReclamos').innerHTML = sistema.empresas.filter((empresa) => empresa.reclamos.length > 0).length;
+function actualizarEmpresasRegistradasConReclamos () {
+    document.getElementById('empresasRegistradasConReclamos').innerHTML =
+        sistema.empresas.filter(empresa => empresa.reclamos.length > 0).length;
 }
 
-function actualizarPromedioEmpresas(){
+function actualizarPromedioEmpresas () {
     // Traemos todos los reclamos, y las empresas sin reclamos.
-    let cantidadReclamos = sistema.empresas.flatMap(({reclamos}) => reclamos).length;
-    let cantidadEmpresasSinReclamos = sistema.empresas.filter((empresa) => empresa.reclamos.length > 0).length;
+    let cantidadReclamos = sistema.empresas.flatMap(
+        ({ reclamos }) => reclamos
+    ).length;
+    let cantidadEmpresasSinReclamos = sistema.empresas.filter(
+        empresa => empresa.reclamos.length > 0
+    ).length;
 
     // Si llega a ser 0, es un caso borde y dejamos 0 (a menos que quieramos calcular limites de Fundamentos de Matematica)
-    if (cantidadReclamos == 0 && cantidadEmpresasSinReclamos == 0){
+    if (cantidadReclamos == 0 && cantidadEmpresasSinReclamos == 0) {
         document.getElementById('empresasPromedio').innerHTML = 0;
     } else {
-        document.getElementById('empresasPromedio').innerHTML = cantidadReclamos / cantidadEmpresasSinReclamos;
+        document.getElementById('empresasPromedio').innerHTML =
+            cantidadReclamos / cantidadEmpresasSinReclamos;
     }
-        
 }
 
-function uppercaseFirstLetter(object){
+function uppercaseFirstLetter (object) {
     return object.nombre.charAt(0).toUpperCase() + object.nombre.slice(1);
 }
 
-function cargarTabla(letra){
+function cargarTabla (letra) {
     // Limpiamos Botones y marcamos estilos.
-    let botones = document.getElementById('letterSelectorsId').getElementsByTagName('button');
-    for(let boton of botones) {
-        boton.classList.remove("selected");
-        if(boton.innerHTML === letra) boton.className = 'selected';
-    };
+    let botones = document
+        .getElementById('letterSelectorsId')
+        .getElementsByTagName('button');
+    for (let boton of botones) {
+        boton.classList.remove('selected');
+        if (boton.innerHTML === letra) boton.className = 'selected';
+    }
 
-    document.getElementById('tablaEmpresas').getElementsByTagName('tbody')[0].innerHTML = '';
+    document
+        .getElementById('tablaEmpresas')
+        .getElementsByTagName('tbody')[0].innerHTML = '';
     let empresas;
 
     // Nos fijamos si no es la letra.
-    if(letra == '*'){
+    if (letra == '*') {
         empresas = sistema.empresas;
     } else {
-        empresas = sistema.empresas.filter((empresa) => uppercaseFirstLetter(empresa).startsWith(letra));
+        empresas = sistema.empresas.filter(empresa =>
+            uppercaseFirstLetter(empresa).startsWith(letra)
+        );
     }
 
-    if(empresas.length == 0){
-        document.getElementById('tablaEmpresas').getElementsByTagName('tbody')[0].innerHTML = '<td colspan="4" class="centered"><p>No hay datos :(</p></td>';
+    if (empresas.length == 0) {
+        document
+            .getElementById('tablaEmpresas')
+            .getElementsByTagName('tbody')[0].innerHTML =
+            '<td colspan="4" class="centered"><p>No hay datos :(</p></td>';
         return false;
     }
 
     // Traemos opcion.
     let opcionCreciente = document.getElementById('opcionCreciente').checked;
-    let opcionDecreciente = document.getElementById('opcionDecreciente').checked;
+    let opcionDecreciente =
+        document.getElementById('opcionDecreciente').checked;
 
     // Checkeando opcion.
-    if (opcionCreciente){
+    if (opcionCreciente) {
         console.log('Entra en opcion creciente');
         empresas.sort((a, b) => (a.nombre > b.nombre ? 1 : -1));
-    } else if (opcionDecreciente){
-        console.log('Entra en decreciente')
+    } else if (opcionDecreciente) {
+        console.log('Entra en decreciente');
         empresas.sort((a, b) => (a.nombre > b.nombre ? -1 : 1));
     }
 
-    for(let empresa of empresas){
-        document.getElementById('tablaEmpresas').getElementsByTagName('tbody')[0].innerHTML +=
-        '<tr>'+
-            '<td>'+empresa.nombre+'</td>'+
-            '<td>'+empresa.direccion+'</td>'+
-            '<td>'+empresa.rubro+'</td>'+
-            '<td>'+empresa.reclamos.length+'</td>'+
-        '</tr>';
+    for (let empresa of empresas) {
+        document
+            .getElementById('tablaEmpresas')
+            .getElementsByTagName('tbody')[0].innerHTML +=
+            '<tr>' +
+            '<td>' +
+            empresa.nombre +
+            '</td>' +
+            '<td>' +
+            empresa.direccion +
+            '</td>' +
+            '<td>' +
+            empresa.rubro +
+            '</td>' +
+            '<td>' +
+            empresa.reclamos.length +
+            '</td>' +
+            '</tr>';
     }
 }
 
-function cargarLetterSelectors(){
+function cargarLetterSelectors () {
     //Cargamos las letras cada una de las empresas.
     document.getElementById('letterSelectorsId').innerHTML = '';
 
-    var letrasUnicas = sistema.empresas.map(item => item.nombre.toUpperCase().substring(0, 1)).filter((value, index, self) => {
-        return self.indexOf(value) === index;
-    }).sort();
+    var letrasUnicas = sistema.empresas
+        .map(item => item.nombre.toUpperCase().substring(0, 1))
+        .filter((value, index, self) => {
+            return self.indexOf(value) === index;
+        })
+        .sort();
 
-    for(let letra of letrasUnicas) document.getElementById('letterSelectorsId').innerHTML += '<button onclick="cargarTabla(\''+letra+'\')">'+letra+'</button>';
-    document.getElementById('letterSelectorsId').innerHTML += '<button onclick="cargarTabla(\'*\')">*</button>';
+    for (let letra of letrasUnicas)
+        document.getElementById('letterSelectorsId').innerHTML +=
+            '<button onclick="cargarTabla(\'' +
+            letra +
+            '\')">' +
+            letra +
+            '</button>';
+    document.getElementById('letterSelectorsId').innerHTML +=
+        '<button onclick="cargarTabla(\'*\')">*</button>';
 }
 
-function buscarEnReclamos(){
+function buscarEnReclamos () {
     let campo = document.getElementById('searchBoxTxt').value;
     recargarReclamos(campo);
     mostrarSeccion('verReclamos');
