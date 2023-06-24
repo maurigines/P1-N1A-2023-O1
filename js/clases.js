@@ -1,13 +1,12 @@
 class Sistema{
-    constructor(empresas = [], reclamos = [], rubros = []){
+    constructor(empresas = [], rubros = []){
         this.empresas = empresas;
-        this.reclamos = reclamos;
         this.rubros = rubros;
     }
 }
 
 class Empresa{
-    constructor(nombre, direccion, rubro, reclamos = 0){
+    constructor(nombre, direccion, rubro, reclamos = []){
         this.nombre = nombre;
         this.direccion = direccion;
         this.rubro = rubro;
@@ -26,7 +25,8 @@ class Reclamo{
 }
 
 class Rubro {
-    constructor(nombre){
+    constructor(nombre, cantidadReclamos = 0){
         this.nombre = nombre;
+        this.cantidadReclamos = cantidadReclamos;
     }
 }

@@ -52,7 +52,6 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 20px;
 }
 
 header nav {
@@ -127,6 +126,16 @@ main img {
 #agregarReclamo button, #agregarEmpresa button {
   width: 100px;
   margin-top: 10px;
+}
+
+.main-items {
+  padding-left:20px;
+}
+
+.centered p {
+  padding:10px;
+  text-align: center;
+  margin:0px;
 }
 
 .reclamoItem {
@@ -394,7 +403,7 @@ button.selected {
   }
 
   #principal {
-    margin-top: 50px;
+    margin-top: 10px;
   }
 
   .searchForm {

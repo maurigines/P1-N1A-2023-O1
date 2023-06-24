@@ -28,9 +28,9 @@
           <li><a href="#estadisticas">Estadisticas</a></li>
           <li><a href="#agregarEmpresa">Agregas Empresa</a></li>
           <li class="searchForm">
-            <form>
-              <input type="text" name="query" placeholder="" maxlength="30">
-              <button type="submit"><span class="search"></span></button>
+            <form id="formSearch">
+              <input type="text" name="query" placeholder="" maxlength="30" id="searchBoxTxt">
+              <button type="button" id="searchBoxButton"><span class="search"></span></button>
             </form>
           </li>
         </ul>
@@ -89,47 +89,46 @@
       <h2>Estadísticas</h2>
       <h3>Empresas Seleccionadas</h3>
       <div class="sort-options">
-        <div class="letter-selectors">
-          <button>A</button>
-          <button class="selected">T</button>
-          <button>*</button>
+        <div class="letter-selectors" id="letterSelectorsId">
+          <button class="selected">*</button>
         </div>
         <div class="radios">
-          <input type="radio" id="ordenCreciente" name="selectorOrdenNombre">
-          <label for="ordenCreciente">Orden nombre creciente</label>
-        
+          <input type="radio" id="opcionCreciente" name="selectorOrdenNombre" checked>
+          <label for="opcionCreciente">Orden nombre creciente</label>
           <input type="radio" id="opcionDecreciente" name="selectorOrdenNombre">
           <label for="opcionDecreciente">Orden nombre decreciente</label>
         </div>
       </div>
     <div>
-      <table>
-        <caption>Empresas que empiezan con T</caption>
-         <tr>
-          <th>Nombre</th>
-          <th>Dirección</th>
-          <th>Rubro</th>
-          <th>Cantidad</th>
-        </tr>
-        <tr>
-          <td>TodoViajes S.A</td>
-          <td>Av Italia 51515</td>
-          <td>Viajes</td>
-          <td>4</td>
-        </tr>
+      <table id="tablaEmpresas">
+        <caption>Empresas que empiezan con <span id="letra">*</span></caption>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Rubro</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4" class="centered"><p>No hay datos :(</p></td>
+          </tr>
+        </tbody>
      </table>
      </div>
      <div>
       <h3>Información General</h3>
-      <p>El promedio de las cantidades considerando todos los reclamos de todas las empresas es:4</p>
-      <p>Total de empresas registradas:2</p>
+      <p>El promedio de las cantidades considerando todos los reclamos de todas las empresas es: <spam id="empresasPromedio">0</spam></p>
+      <p>Total de empresas registradas (con reclamos): <spam id="empresasRegistradasConReclamos">0</spam></p>
+      <p>Total de empresas registradas: <spam id="empresasRegistradas">0</spam></p>
       <h3>Empresas sin Reclamos</h3>
-      <ul>
-        <li>Alfa(18 de Julio 12345)Rubro: Muebles</li>
+      <ul id="empresasSinReclamos">
+        <li>No hay empresas sin reclamos :(</li>
       </ul>
       <h3>Rubros con Máxima cantidad de reclamos</h3>
-      <ul>
-        <li>Viajes: cantidad 4</li>
+      <ul id="rubrosMaximaCantidad">
+        <li>No hay informacion para los rubros.</li>
       </ul>
      </div>
     </section>
