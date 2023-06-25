@@ -401,8 +401,9 @@ function actualizarPromedioEmpresas () {
     if (cantidadReclamos == 0 && cantidadEmpresasSinReclamos == 0) {
         document.getElementById('empresasPromedio').innerHTML = 0;
     } else {
-        document.getElementById('empresasPromedio').innerHTML =
-            cantidadReclamos / cantidadEmpresasSinReclamos;
+        document.getElementById('empresasPromedio').innerHTML = Math.round(
+            cantidadReclamos / cantidadEmpresasSinReclamos
+        );
     }
 }
 
