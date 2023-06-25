@@ -93,6 +93,8 @@ window.onload = () => {
 
             // Limpiar visualizacion.
             form.reset();
+        } else {
+            form.reportValidity();
         }
     });
 
@@ -144,6 +146,8 @@ window.onload = () => {
 
             // Limpiar visualizacion
             form.reset();
+        } else {
+            form.reportValidity();
         }
     });
 
