@@ -112,6 +112,12 @@ window.onload = () => {
             const textoReclamo =
                 document.getElementById('txtAreaReclamo').value;
 
+            // Check for empresa no siendo valida.
+            if(empresa == 'sin-datos'){
+                alert('Se necesita una empresa para agregar un reclamo. Intenta nuevamente despues de haber agregado una Empresa.');
+                return false;
+            }
+
             // Creamos un reclamo nuevo
             const reclamo = new Reclamo(
                 nombre,
