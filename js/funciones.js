@@ -99,7 +99,8 @@ window.onload = () => {
     });
 
     btnSeccionReclamo.addEventListener('click', () => {
-        mostrarSeccion('agregarReclamo');
+        if (sistema.empresas.length > 0) mostrarSeccion('agregarReclamo')
+        else alert('No hay ninguna empresa disponible. Agrega una empresa e intenta de nuevo.')
     });
     btnAgregarReclamo.addEventListener('click', () => {
         const form = document.getElementById('formReclamo');
