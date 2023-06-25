@@ -230,69 +230,77 @@ function recargarReclamos (textoBusqueda = '') {
         });
     }
 
-    // Recorremos.
-    reclamos.sort((a, b) => b.numeroReclamo - a.numeroReclamo);
-    for (let reclamo of reclamos) {
-        let elementoReclamo = document.createElement('div');
-        elementoReclamo.className = 'reclamoItem';
-        elementoReclamo.id = reclamo.nombre;
-        elementoReclamo.setAttribute('indice', reclamo.numeroReclamo);
+    // Si no hay reclamos
+    if(reclamos.length == 0){
+        cajaReclamos.innerHTML = '<div class="no-reclamos">No hay ningun reclamo :)</div>';
+    } else {
+        // Ordenamos y recorremos.
+        reclamos.sort((a, b) => b.numeroReclamo - a.numeroReclamo);
 
-        // Armando H3
-        let title = document.createElement('h3');
-        title.innerHTML = 'Reclamo No.' + reclamo.numeroReclamo;
+        for (let reclamo of reclamos) {
+            let elementoReclamo = document.createElement('div');
+            elementoReclamo.className = 'reclamoItem';
+            elementoReclamo.id = reclamo.nombre;
+            elementoReclamo.setAttribute('indice', reclamo.numeroReclamo);
 
-        // Armando primer P.
-        let boxNombreTitulo = document.createElement('p');
-        let tituloReclamo = document.createElement('span');
-        tituloReclamo.className = 'asunto';
-        tituloReclamo.innerHTML = reclamo.tituloReclamo;
-        boxNombreTitulo.innerHTML = reclamo.nombre + ':';
-        boxNombreTitulo.appendChild(tituloReclamo);
+            // Armando H3
+            let title = document.createElement('h3');
+            title.innerHTML = 'Reclamo No.' + reclamo.numeroReclamo;
 
-        // Armando el segundo P.
-        let boxEmpresa = document.createElement('p');
-        let empresaReclamo = document.createElement('span');
-        empresaReclamo.className = 'empresa';
-        empresaReclamo.innerHTML = reclamo.empresa;
-        boxEmpresa.innerHTML = 'Empresa:';
-        boxEmpresa.appendChild(empresaReclamo);
+            // Armando primer P.
+            let boxNombreTitulo = document.createElement('p');
+            let tituloReclamo = document.createElement('span');
+            tituloReclamo.className = 'asunto';
+            tituloReclamo.innerHTML = reclamo.tituloReclamo;
+            boxNombreTitulo.innerHTML = reclamo.nombre + ':';
+            boxNombreTitulo.appendChild(tituloReclamo);
 
-        // Armando el tercer P.
-        let boxTextoReclamo = document.createElement('p');
-        boxTextoReclamo.innerHTML = reclamo.textoReclamo;
+            // Armando el segundo P.
+            let boxEmpresa = document.createElement('p');
+            let empresaReclamo = document.createElement('span');
+            empresaReclamo.className = 'empresa';
+            empresaReclamo.innerHTML = reclamo.empresa;
+            boxEmpresa.innerHTML = 'Empresa:';
+            boxEmpresa.appendChild(empresaReclamo);
 
-        // Armando box acciones
-        let boxAcciones = document.createElement('div');
-        boxAcciones.className = 'actions';
+            // Armando el tercer P.
+            let boxTextoReclamo = document.createElement('p');
+            boxTextoReclamo.innerHTML = reclamo.textoReclamo;
 
-        let botonAcciones = document.createElement('button');
-        botonAcciones.setAttribute(
-            'onclick',
-            'incrementarReclamo("' +
-                reclamo.empresa +
-                '","' +
-                reclamo.nombre +
-                '");'
-        );
-        botonAcciones.innerHTML = 'A mi tambien me pasó!';
+            // Armando box acciones
+            let boxAcciones = document.createElement('div');
+            boxAcciones.className = 'actions';
 
-        boxAcciones.appendChild(botonAcciones);
-        boxAcciones.innerHTML +=
-            '<span>Contador:<span class="contador">' +
-            reclamo.contador +
-            '</span></span>';
+            let botonAcciones = document.createElement('button');
+            botonAcciones.setAttribute(
+                'onclick',
+                'incrementarReclamo("' +
+                    reclamo.empresa +
+                    '","' +
+                    reclamo.nombre +
+                    '");'
+            );
+            botonAcciones.innerHTML = 'A mi tambien me pasó!';
 
-        // Agregando elementos a la
-        elementoReclamo.appendChild(title);
-        elementoReclamo.appendChild(boxNombreTitulo);
-        elementoReclamo.appendChild(boxEmpresa);
-        elementoReclamo.appendChild(boxTextoReclamo);
-        elementoReclamo.appendChild(boxAcciones);
+            boxAcciones.appendChild(botonAcciones);
+            boxAcciones.innerHTML +=
+                '<span>Contador:<span class="contador">' +
+                reclamo.contador +
+                '</span></span>';
 
-        // Finalmente agregamos el reclamo a la caja.
-        cajaReclamos.appendChild(elementoReclamo);
+            // Agregando elementos a la
+            elementoReclamo.appendChild(title);
+            elementoReclamo.appendChild(boxNombreTitulo);
+            elementoReclamo.appendChild(boxEmpresa);
+            elementoReclamo.appendChild(boxTextoReclamo);
+            elementoReclamo.appendChild(boxAcciones);
+
+            // Finalmente agregamos el reclamo a la caja.
+            cajaReclamos.appendChild(elementoReclamo);
+        }
     }
+
+    
 }
 
 function incrementarReclamo (empresaId, reclamoId) {
