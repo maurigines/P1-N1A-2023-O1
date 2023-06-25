@@ -435,6 +435,9 @@ function cargarTabla (letra) {
         return false;
     }
 
+    // Cambiamos string con letra
+    document.getElementById('letra').innerHTML = letra;
+
     // Traemos opcion.
     let opcionCreciente = document.getElementById('opcionCreciente').checked;
     let opcionDecreciente =
