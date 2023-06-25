@@ -99,8 +99,11 @@ window.onload = () => {
     });
 
     btnSeccionReclamo.addEventListener('click', () => {
-        if (sistema.empresas.length > 0) mostrarSeccion('agregarReclamo')
-        else alert('No hay ninguna empresa disponible. Agrega una empresa e intenta de nuevo.')
+        if (sistema.empresas.length > 0) mostrarSeccion('agregarReclamo');
+        else
+            alert(
+                'No hay ninguna empresa disponible. Agrega una empresa e intenta de nuevo.'
+            );
     });
     btnAgregarReclamo.addEventListener('click', () => {
         const form = document.getElementById('formReclamo');
@@ -114,8 +117,10 @@ window.onload = () => {
                 document.getElementById('txtAreaReclamo').value;
 
             // Check for empresa no siendo valida.
-            if(empresa == 'sin-datos'){
-                alert('Se necesita una empresa para agregar un reclamo. Intenta nuevamente despues de haber agregado una Empresa.');
+            if (empresa == 'sin-datos') {
+                alert(
+                    'Se necesita una empresa para agregar un reclamo. Intenta nuevamente despues de haber agregado una Empresa.'
+                );
                 return false;
             }
 
@@ -238,8 +243,9 @@ function recargarReclamos (textoBusqueda = '') {
     }
 
     // Si no hay reclamos
-    if(reclamos.length == 0){
-        cajaReclamos.innerHTML = '<div class="no-reclamos">No hay ningun reclamo :)</div>';
+    if (reclamos.length == 0) {
+        cajaReclamos.innerHTML =
+            '<div class="no-reclamos">No hay ningun reclamo :)</div>';
     } else {
         // Ordenamos y recorremos.
         reclamos.sort((a, b) => b.numeroReclamo - a.numeroReclamo);
@@ -306,8 +312,6 @@ function recargarReclamos (textoBusqueda = '') {
             cajaReclamos.appendChild(elementoReclamo);
         }
     }
-
-    
 }
 
 function incrementarReclamo (empresaId, reclamoId) {
