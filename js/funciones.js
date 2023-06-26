@@ -1,3 +1,8 @@
+/*
+  Creado para Obligatorio Programacion 1 2023 / ORT Uruguay
+  Autores: Alfonso Carvallo y Mauricio Martinez
+*/
+
 // Inicializando el sistema
 const sistema = new Sistema();
 let identificadorReclamo = 1;
