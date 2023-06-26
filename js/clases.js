@@ -1,3 +1,8 @@
+/*
+  Creado para Obligatorio Programacion 1 2023 / ORT Uruguay
+  Autores: Alfonso Carvallo y Mauricio Martinez
+*/
+
 class Sistema {
     constructor (empresas = [], rubros = []) {
         this.empresas = empresas;
