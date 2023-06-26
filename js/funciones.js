@@ -39,6 +39,11 @@ window.onload = () => {
         }
     });
 
+    const btnVolver = document.getElementById('btnVolver');
+    btnVolver.addEventListener('click', function (e) {
+       mostrarSeccion('principal');
+    });
+
     btnSearchBox.addEventListener('click', () => {
         buscarEnReclamos();
     });
@@ -74,7 +79,7 @@ window.onload = () => {
 
             // Checkeamos si existe una empresa con el mismo nombre.
             let encontramosEmpresas = sistema.empresas.filter(
-                empresa => empresa.nombre === nombre
+                empresa => empresa.nombre.toLowerCase() === nombre.toLowerCase()
             ).length;
             if (encontramosEmpresas > 0) {
                 alert(
